@@ -1,0 +1,56 @@
+{
+  "generated": "2026-02-21",
+  "version": "2",
+  "blocks": [
+    {
+      "file": "example-block.md",
+      "topic": "Example Block -- Tool X Deep Dive",
+      "date": "2025-01-15",
+      "categories": [
+        "example"
+      ],
+      "connections": [
+        "example-pattern.md"
+      ],
+      "summary": "Tool X is a widely-used library for doing Y. This block captures what we learned by actually using it, not what the README claims.",
+      "claims": [
+        "Tool X requires manual Y configuration despite docs claiming automatic setup",
+        "Performance degrades above 1000 items without Z indexing",
+        "v2.0 API is backwards-compatible with v1.x despite changelog claiming breaking changes"
+      ],
+      "confidence": "empirical",
+      "staleness_risk": "low",
+      "connected_blocks": [
+        "example-pattern.md"
+      ],
+      "theory_delta": "Documentation claims X works out of the box -- in practice, requires manual configuration of Y before first use",
+      "environment_scope": "Tested on macOS 14.3, Python 3.11, January 2025"
+    }
+  ],
+  "patterns": [
+    {
+      "file": "example-pattern.md",
+      "topic": "Example Pattern -- Convergent Design",
+      "date": "2025-01-15",
+      "categories": [
+        "example",
+        "patterns"
+      ],
+      "connections": [
+        "example-block.md"
+      ],
+      "summary": "When three or more independent tools solve the same problem the same way without copying each other, that's a pattern worth naming. This is convergent design -- structural constraints producing identical solutions.",
+      "claims": [
+        "This pattern recurs across at least 3 independent implementations",
+        "Each implementation discovered it independently rather than copying from a common source",
+        "The pattern solves a structural constraint, not a preference"
+      ],
+      "confidence": "medium",
+      "staleness_risk": "low",
+      "connected_blocks": [
+        "example-block.md"
+      ],
+      "theory_delta": "Pattern appears independently in 3+ unrelated tools -- likely fundamental, not coincidental"
+    }
+  ]
+}

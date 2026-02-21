@@ -1,0 +1,8 @@
+name = "my-blockbase"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+BLOCKBASE_NAME = "My Knowledge Base"
+GITHUB_REPO = "username/repo-name"
+# WORKER_URL = "https://my-blockbase.username.workers.dev"

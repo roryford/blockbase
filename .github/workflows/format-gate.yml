@@ -1,0 +1,39 @@
+name: Block Format Gate
+
+on:
+  pull_request:
+    paths:
+      - 'blocks/*.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Get changed block files
+        id: changed
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          CHANGED=$(git diff --name-only "$BASE" HEAD -- 'blocks/*.md' | tr '\n' ' ')
+          echo "Changed: $CHANGED"
+          echo "files=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Validate block format
+        run: |
+          FILES="${{ steps.changed.outputs.files }}"
+          if [ -z "$FILES" ]; then
+            echo "No block files changed."
+          else
+            python scripts/validate_blocks.py $FILES
+          fi
