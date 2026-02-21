@@ -404,8 +404,8 @@ async function mcpToolGetBlock(id, args, env) {
   }
 
   const { repo } = getConfig(env);
-  const rawBase = `https://raw.githubusercontent.com/${repo}/main/blocks/`;
-  const patternBase = `https://raw.githubusercontent.com/${repo}/main/patterns/`;
+  const rawBase = `https://raw.githubusercontent.com/${repo}/master/blocks/`;
+  const patternBase = `https://raw.githubusercontent.com/${repo}/master/patterns/`;
 
   for (const base of [rawBase, patternBase]) {
     try {
@@ -486,8 +486,8 @@ function handleList(url) {
 
 async function handleFile(filename, env) {
   const { repo } = getConfig(env);
-  const rawBase = `https://raw.githubusercontent.com/${repo}/main/blocks/`;
-  const patternBase = `https://raw.githubusercontent.com/${repo}/main/patterns/`;
+  const rawBase = `https://raw.githubusercontent.com/${repo}/master/blocks/`;
+  const patternBase = `https://raw.githubusercontent.com/${repo}/master/patterns/`;
 
   for (const base of [rawBase, patternBase]) {
     try {
